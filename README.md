@@ -19,5 +19,11 @@ cmake --build build/ --config Debug
 
 ## built examples
 
+- [x] aspectframe
 - [x] entry
+  - [x] simple
+  - [x] icon
+  - [x] completion
+  - [x] progress
 - [x] spinbutton
+- [x] scrolledwindow

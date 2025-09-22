@@ -23,6 +23,8 @@ message(STATUS "GTKMM_LIBRARIES: ${GTKMM_LIBRARIES}")
 # CMake is gonna read the 'CMakeLists.txt' file located under 'example':
 add_subdirectory(entry)
 add_subdirectory(spinbutton)
+add_subdirectory(scrolledwindow)
+add_subdirectory(aspectframe)
 
 # format the source code
 #include(ClangTools) # move this to each project!
