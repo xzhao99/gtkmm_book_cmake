@@ -27,6 +27,7 @@ add_subdirectory(scrolledwindow)
 add_subdirectory(aspectframe)
 
 add_subdirectory(menus)
+add_subdirectory(menus_and_toolbars)
 
 # format the source code
 #include(ClangTools) # move this to each project!
