@@ -21,25 +21,24 @@
 
 #include <memory>
 
-class ExampleWindow : public Gtk::Window
-{
-public:
-  ExampleWindow(const Glib::RefPtr<Gtk::Application>& app);
-  virtual ~ExampleWindow();
+class ExampleWindow : public Gtk::Window {
+  public:
+    ExampleWindow(const Glib::RefPtr<Gtk::Application>& app);
+    virtual ~ExampleWindow();
 
-protected:
-  //Signal handlers:
-  void on_label_pressed(int n_press, double x, double y);
+  protected:
+    // Signal handlers:
+    void on_label_pressed(int n_press, double x, double y);
 
-  void on_menu_file_popup_generic();
+    void on_menu_file_popup_generic();
 
-  //Child widgets:
-  Gtk::Box m_Box;
-  Gtk::Label m_Label;
-  Gtk::PopoverMenu m_MenuPopup;
+    // Child widgets:
+    Gtk::Box m_Box;
+    Gtk::Label m_Label;
+    Gtk::PopoverMenu m_MenuPopup;
 
-  Glib::RefPtr<Gtk::Builder> m_refBuilder;
-  Glib::RefPtr<Gtk::GestureClick> m_refGesture;
+    Glib::RefPtr<Gtk::Builder> m_refBuilder;
+    Glib::RefPtr<Gtk::GestureClick> m_refGesture;
 };
 
-#endif //GTKMM_EXAMPLEWINDOW_H
+#endif // GTKMM_EXAMPLEWINDOW_H

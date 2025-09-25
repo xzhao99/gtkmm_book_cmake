@@ -26,6 +26,8 @@ add_subdirectory(spinbutton)
 add_subdirectory(scrolledwindow)
 add_subdirectory(aspectframe)
 
+add_subdirectory(menus)
+
 # format the source code
 #include(ClangTools) # move this to each project!
 
