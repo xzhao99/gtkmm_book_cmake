@@ -118,10 +118,26 @@ ExampleWindow::ExampleWindow(const Glib::RefPtr<Gtk::Application>& app)
 
     try {
         m_refBuilder->add_from_string(ui_info);
-        std::filesystem::path res_path{"./menus_and_toolbars/toolbar.ui"};
+#if 0   // the original code
+        m_refBuilder->add_from_resource("/toolbar/toolbar.ui");
+#elif 1 // my test/debug code
+        // use add_from_file() instead of add_from_resource()!
+        std::filesystem::path f_path{"./menus_and_toolbars/toolbar/toolbar4.ui"};
+        f_path.make_preferred();
+        m_refBuilder->add_from_file(std::filesystem::absolute(f_path).string());
+#else
+        std::filesystem::path res_path{"./menus_and_toolbars/toolbar/toolbar.gresource4.xml"};
         res_path.make_preferred();
-        m_refBuilder->add_from_resource(std::filesystem::absolute(res_path).string());
-        // m_refBuilder->create_from_file(std::filesystem::absolute(res_path).string());
+        std::cout << "===>Test in " << __FUNCTION__ << ":\n  res_path: " << res_path.string()
+                  << std::endl;
+        std::cout << "  absolute(res_path): " << std::filesystem::absolute(res_path).string()
+                  << std::endl;
+        std::cout << "  curr_path: " << std::filesystem::current_path() << std::endl;
+        auto rpath =
+            std::filesystem::current_path() / "menus_and_toolbars/toolbar/toolbar.gresource4.xml";
+        std::cout << "  rpath: " << rpath.string() << std::endl;
+        m_refBuilder->add_from_resource(rpath.string());
+#endif
     } catch (const Glib::Error& ex) {
         std::cerr << "Building menus and toolbar failed: " << ex.what();
     }
