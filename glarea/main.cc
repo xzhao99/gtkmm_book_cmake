@@ -14,11 +14,10 @@
  * with this program; if not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <gtkmm/application.h>
 #include "examplewindow.h" // Include our main window class
+#include <gtkmm/application.h>
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     // Create a GTKmm application instance.
     auto app = Gtk::Application::create("org.gtkmm.example.OpenGLCube");
 

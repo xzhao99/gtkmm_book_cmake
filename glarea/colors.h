@@ -25,11 +25,11 @@ struct Color {
 };
 
 // Define colors for each face of the cube.
-const Color COLOR_FRONT = {0.0f, 1.0f, 0.0f, 1.0f};          // Bright green
-const Color COLOR_BACK = {1.0f, 1.0f, 0.0f, 1.0f};           // Yellow
-const Color COLOR_TOP = {0.6f, 0.8f, 1.0f, 1.0f};            // Light blue
-const Color COLOR_BOTTOM = {0.5f, 0.0f, 0.5f, 1.0f};         // Purple
-const Color COLOR_RIGHT = {1.0f, 0.0f, 0.0f, 1.0f};          // Red
-const Color COLOR_LEFT = {0.2f, 0.2f, 0.7f, 1.0f};           // Dark blue
+const Color COLOR_FRONT = {0.0f, 1.0f, 0.0f, 1.0f};  // Bright green
+const Color COLOR_BACK = {1.0f, 1.0f, 0.0f, 1.0f};   // Yellow
+const Color COLOR_TOP = {0.6f, 0.8f, 1.0f, 1.0f};    // Light blue
+const Color COLOR_BOTTOM = {0.5f, 0.0f, 0.5f, 1.0f}; // Purple
+const Color COLOR_RIGHT = {1.0f, 0.0f, 0.0f, 1.0f};  // Red
+const Color COLOR_LEFT = {0.2f, 0.2f, 0.7f, 1.0f};   // Dark blue
 
 #endif // GTKMM_EXAMPLE_COLORS_H

@@ -17,21 +17,20 @@
 #ifndef GTKMM_EXAMPLEWINDOW_H
 #define GTKMM_EXAMPLEWINDOW_H
 
-#include <gtkmm.h>
 #include "exampleglarea.h" // Include our custom GLArea
+#include <gtkmm.h>
 
-class ExampleWindow : public Gtk::Window
-{
-public:
+class ExampleWindow : public Gtk::Window {
+  public:
     ExampleWindow();
 
-protected:
+  protected:
     // Signal handlers:
     void on_quit_button_clicked();
 
-private:
-    Gtk::Box m_main_vbox; // Main container for widgets
-    ExampleGLArea m_gl_area;  // Our OpenGL area
+  private:
+    Gtk::Box m_main_vbox;      // Main container for widgets
+    ExampleGLArea m_gl_area;   // Our OpenGL area
     Gtk::Button m_quit_button; // Quit button
 };
 

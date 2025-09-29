@@ -34,10 +34,10 @@ ExampleWindow::ExampleWindow()
 
     m_main_vbox.append(m_quit_button);
     m_quit_button.set_hexpand(true);
-    m_quit_button.signal_clicked().connect(sigc::mem_fun(*this, &ExampleWindow::on_quit_button_clicked));
+    m_quit_button.signal_clicked().connect(
+        sigc::mem_fun(*this, &ExampleWindow::on_quit_button_clicked));
 }
 
-void ExampleWindow::on_quit_button_clicked()
-{
+void ExampleWindow::on_quit_button_clicked() {
     set_visible(false); // Hide the window to gracefully exit the application
 }

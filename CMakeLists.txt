@@ -13,6 +13,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTKMM REQUIRED gtkmm-4.0>=4.10)
+# for OpenGL
+pkg_check_modules(EPOXY REQUIRED epoxy)
+find_package(glm REQUIRED)
+find_package(OpenGL REQUIRED)
 
 # print the GTKmm variables
 message(STATUS "GTKMM_INCLUDE_DIRS: ${GTKMM_INCLUDE_DIRS}")
@@ -28,6 +32,7 @@ add_subdirectory(aspectframe)
 
 add_subdirectory(menus)
 add_subdirectory(menus_and_toolbars)
+add_subdirectory(glarea)
 
 # format the source code
 #include(ClangTools) # move this to each project!

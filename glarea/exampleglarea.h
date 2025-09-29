@@ -17,18 +17,17 @@
 #ifndef GTKMM_EXAMPLEGLAREA_H
 #define GTKMM_EXAMPLEGLAREA_H
 
-#include <gtkmm.h>
-#include <glm/glm.hpp> // For glm::vec2, glm::vec3, glm::mat4
-#include <epoxy/gl.h>  // Include Epoxy for OpenGL function loading
 #include "colors.h"    // Include for Color struct and constants
+#include <epoxy/gl.h>  // Include Epoxy for OpenGL function loading
+#include <glm/glm.hpp> // For glm::vec2, glm::vec3, glm::mat4
+#include <gtkmm.h>
 
 // Class for our OpenGL Canvas, inherits from Gtk::GLArea.
-class ExampleGLArea : public Gtk::GLArea
-{
-public:
+class ExampleGLArea : public Gtk::GLArea {
+  public:
     ExampleGLArea();
 
-protected:
+  protected:
     // Signal handlers:
     void on_realize() override;
     void on_unrealize() override;
@@ -40,7 +39,7 @@ protected:
     void on_mouse_motion(double x, double y);
     bool on_scroll(double double_y);
 
-private:
+  private:
     // OpenGL resource IDs
     GLuint m_vao = 0;
     GLuint m_position_buffer = 0;
