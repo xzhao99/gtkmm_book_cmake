@@ -15,9 +15,14 @@
  */
 
 #include "exampleappwindow.h"
+
+#include <filesystem>
 #include <iostream>
 #include <set>
 #include <stdexcept>
+
+namespace fs = std::filesystem;
+const fs::path resource_dir{fs::current_path() / "buildapp/exampleapp/"};
 
 ExampleAppWindow::ExampleAppWindow(BaseObjectType* cobject,
                                    const Glib::RefPtr<Gtk::Builder>& refBuilder)
@@ -84,7 +89,8 @@ ExampleAppWindow::ExampleAppWindow(BaseObjectType* cobject,
     // Connect the menu to the MenuButton m_gears, and bind the show-words setting
     // to the win.show-words action and the "Words" menu item.
     // (The connection between action and menu item is specified in gears_menu.ui.)
-    auto menu_builder = Gtk::Builder::create_from_resource("/org/gtkmm/exampleapp/gears_menu.ui");
+    auto gears_menu_fn = resource_dir / "gears_menu.ui";
+    auto menu_builder = Gtk::Builder::create_from_resource(gears_menu_fn.string());
     auto menu = menu_builder->get_object<Gio::MenuModel>("menu");
     if (!menu)
         throw std::runtime_error("No \"menu\" object in gears_menu.ui");
@@ -99,14 +105,22 @@ ExampleAppWindow::ExampleAppWindow(BaseObjectType* cobject,
                                                            m_lines_label->property_visible());
 
     // Set the window icon.
-    Gtk::IconTheme::get_for_display(get_display())->add_resource_path("/org/gtkmm/exampleapp");
+    Gtk::IconTheme::get_for_display(get_display())->add_resource_path(resource_dir.string());
     set_icon_name("exampleapp");
 }
 
 // static
 ExampleAppWindow* ExampleAppWindow::create() {
     // Load the Builder file and instantiate its widgets.
-    auto refBuilder = Gtk::Builder::create_from_resource("/org/gtkmm/exampleapp/window.ui");
+    auto menu_fn = resource_dir / "window.ui";
+    if (fs::exists(menu_fn)) {
+        std::cout << "===>Test: menu_ui_file: " << menu_fn << std::endl;
+    } else {
+        throw std::runtime_error(".ui file doesn't exist!");
+    }
+
+    // auto refBuilder = Gtk::Builder::create_from_resource(menu_fn.string());
+    auto refBuilder = Gtk::Builder::create_from_file(menu_fn.string());
 
     auto window = Gtk::Builder::get_widget_derived<ExampleAppWindow>(refBuilder, "app_window");
     if (!window)
