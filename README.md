@@ -31,3 +31,8 @@ cmake --build build/ --config Release
   - [x] progress
 - [x] spinbutton
 - [x] scrolledwindow
+- [x] menus
+- [x] menus_and_toolbars
+- [x] toolbar
+- [x] gl_area
+- [x] build_app(not working)

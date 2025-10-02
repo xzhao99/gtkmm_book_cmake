@@ -19,22 +19,21 @@
 
 #include <gtkmm.h>
 
-class ExampleWindow : public Gtk::Window
-{
-public:
-  ExampleWindow();
-  virtual ~ExampleWindow();
+class ExampleWindow : public Gtk::Window {
+  public:
+    ExampleWindow();
+    virtual ~ExampleWindow();
 
-protected:
-  //Signal handlers:
-  void on_button_close();
-  void on_toolbar_item();
+  protected:
+    // Signal handlers:
+    void on_button_close();
+    void on_toolbar_item();
 
-  //Child widgets:
-  Gtk::Box m_VBox;
-  Gtk::Box m_ButtonBox;
-  Gtk::Box m_Toolbar;
-  Gtk::Button m_Button_Close;
+    // Child widgets:
+    Gtk::Box m_VBox;
+    Gtk::Box m_ButtonBox;
+    Gtk::Box m_Toolbar;
+    Gtk::Button m_Button_Close;
 };
 
-#endif //GTKMM_EXAMPLEWINDOW_H
+#endif // GTKMM_EXAMPLEWINDOW_H

@@ -32,6 +32,7 @@ add_subdirectory(aspectframe)
 
 add_subdirectory(menus)
 add_subdirectory(menus_and_toolbars)
+add_subdirectory(toolbar)
 add_subdirectory(glarea)
 
 add_subdirectory(buildapp/example_app)
